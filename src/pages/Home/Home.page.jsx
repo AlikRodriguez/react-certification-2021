@@ -35,9 +35,7 @@ function HomePage() {
     history.push('/');
   }
 
-  if (!authenticated) {
-    history.push('/')
-  }
+    console.log('last',authenticated)
   return (
     <Home>
       {authenticated ? (
