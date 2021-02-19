@@ -19,6 +19,7 @@ const Input = styled.input`
     display: none;
   }
 `;
+
 const SearchButton = styled.button`
   background-color: white;
   border: none;
