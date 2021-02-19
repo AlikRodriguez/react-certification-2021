@@ -6,15 +6,14 @@ import './Layout.styles.css';
 const theme = {
   mainBackground: '#edeef1',
   secondBackground: '#fff',
-
-}
+};
 
 function Layout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <main className="container">{children}</main>
-    </ThemeProvider>  
-  )
+    </ThemeProvider>
+  );
 }
 
 export default Layout;

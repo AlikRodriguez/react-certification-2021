@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MenuStyle = styled.menu`
-  display:flex;
-  background-color: ${({theme}) => theme.secondBackground};
+  display: flex;
+  background-color: ${({ theme }) => theme.secondBackground};
   flex-direction: column;
   width: 300px;
   padding: 25px 10px;
-  @media (max-width: 800px){
-    width:50px;
-     
+  @media (max-width: 800px) {
+    width: 50px;
   }
-`
+`;
 const LinkStyled = styled(Link)`
   color: black;
   font-size: 1em;
@@ -43,15 +42,24 @@ const LinkStyled = styled(Link)`
       font-size: 2em;
     }
   }
-`
+`;
 const Menu = ({ deAuthenticate }) => {
   return (
     <MenuStyle>
-      <LinkStyled to="/secret"> <span> ⌂</span> Home </LinkStyled>
-      <LinkStyled to="/favorites" > <span>★</span> Favorites </LinkStyled>
-      <LinkStyled to="/" onClick={ deAuthenticate }> <span> ⇤</span> Logout </LinkStyled>
+      <LinkStyled to="/secret">
+        {' '}
+        <span> ⌂</span> Home{' '}
+      </LinkStyled>
+      <LinkStyled to="/favorites">
+        {' '}
+        <span>★</span> Favorites{' '}
+      </LinkStyled>
+      <LinkStyled to="/" onClick={deAuthenticate}>
+        {' '}
+        <span> ⇤</span> Logout{' '}
+      </LinkStyled>
     </MenuStyle>
-  )
+  );
 };
 
 export default Menu;

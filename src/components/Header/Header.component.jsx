@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const HeaderBar = styled.nav`
   display: flex;
-  align-items:center;
-  height:3em;
+  align-items: center;
+  height: 3em;
   background-color: #fff;
-  justify-content:space-between;
-  & div{
-    display:flex;
-    flex-direction:row-reverse;
+  justify-content: space-between;
+  & div {
+    display: flex;
+    flex-direction: row-reverse;
   }
   & .burger {
     width: 300px;
@@ -18,19 +18,18 @@ const HeaderBar = styled.nav`
   }
   & .options-header {
     margin-right: 25px;
-    flex-grow:1;
-    display:flex;
+    flex-grow: 1;
+    display: flex;
   }
-`
+`;
 
-const Header = ({children}) => {
+const Header = ({ children }) => {
   return (
     <HeaderBar>
       <div className="burger"> ☰ </div>
       <div className="options-header">{children}</div>
     </HeaderBar>
-  )
+  );
 };
 
 export default Header;
-

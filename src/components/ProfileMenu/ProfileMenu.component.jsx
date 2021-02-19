@@ -1,12 +1,8 @@
-import React from 'react'
-import { ProfileImage } from './ProfileMenu.styled'
-
+import React from 'react';
+import { ProfileImage } from './ProfileMenu.styled';
 
 const ProfileMenu = () => {
-  return (
-    <ProfileImage>
-    </ProfileImage>
-  )
-}
+  return <ProfileImage />;
+};
 
-export default ProfileMenu
+export default ProfileMenu;
