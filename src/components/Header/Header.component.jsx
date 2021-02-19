@@ -21,6 +21,11 @@ const HeaderBar = styled.nav`
     flex-grow: 1;
     display: flex;
   }
+  @media (max-width:800px) {
+    & .burger{
+      width:50px;
+    }
+  }
 `;
 
 const Header = ({ children }) => {

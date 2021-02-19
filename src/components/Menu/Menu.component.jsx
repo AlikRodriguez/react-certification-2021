@@ -12,6 +12,7 @@ const MenuStyle = styled.menu`
     width: 50px;
   }
 `;
+
 const LinkStyled = styled(Link)`
   color: black;
   font-size: 1em;

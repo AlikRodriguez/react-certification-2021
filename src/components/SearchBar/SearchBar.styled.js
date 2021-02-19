@@ -13,7 +13,20 @@ const Input = styled.input`
     min-width: calc(100vw - 475px - 3em);
   }
   @media (max-width: 800px) {
-    min-width: calc(100vw - 215px - 3em);
+    width: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
   }
 `;
-export { Input };
+const SearchButton = styled.button`
+  background-color: white;
+  border: none;
+  display: none;
+  @media (max-width: 800px) {
+    display: inline-block;
+    margin: 10px 15px;
+    font-size: 1.2em;
+  }
+`;
+export { Input, SearchButton };
