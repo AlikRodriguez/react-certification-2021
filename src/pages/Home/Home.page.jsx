@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Grid from '../../components/Grid/Grid.component';
 import Header from '../../components/Header';
@@ -35,6 +35,9 @@ function HomePage() {
     history.push('/');
   }
 
+  if (!authenticated) {
+    history.push('/')
+  }
   return (
     <Home>
       {authenticated ? (
@@ -52,7 +55,7 @@ function HomePage() {
           </Main>
         </>
       ) : (
-        <Link to="/login">let me in →</Link>
+        <Redirect to="/login">let me in →</Redirect> 
       )}
     </Home>
   );
