@@ -47,17 +47,14 @@ const LinkStyled = styled(Link)`
 const Menu = ({ deAuthenticate }) => {
   return (
     <MenuStyle>
-      <LinkStyled to="/secret">
-        {' '}
-        <span> ⌂</span> Home{' '}
+      <LinkStyled to="/">
+        <span> ⌂</span> Home 
       </LinkStyled>
       <LinkStyled to="/favorites">
-        {' '}
-        <span>★</span> Favorites{' '}
+        <span>★</span> Favorites 
       </LinkStyled>
       <LinkStyled to="/" onClick={deAuthenticate}>
-        {' '}
-        <span> ⇤</span> Logout{' '}
+        <span> ⇤</span> Logout 
       </LinkStyled>
     </MenuStyle>
   );
