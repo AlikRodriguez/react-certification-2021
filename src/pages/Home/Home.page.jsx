@@ -1,33 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
 import Grid from '../../components/Grid/Grid.component';
 import Header from '../../components/Header';
 import HomeContent from '../../components/HomeContent/HomeContent.component';
 import Menu from '../../components/Menu';
-import videosMock from '../../providers/videos.mock.json';
 import { useAuth } from '../../providers/Auth';
 import Toggle from '../../components/Toggle';
 import SearchBar from '../../components/SearchBar/SearchBar.component';
 import ProfileMenu from '../../components/ProfileMenu/ProfileMenu.component';
-
-const Main = styled.main`
-  display: flex;
-  flex-grow: 1;
-`;
-
-const Home = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-`;
-
-const videos = videosMock.items;
+import { Main, Home } from './Home.page.styled';
+import { getVideos } from '../../providers/Videos';
 
 function HomePage() {
   const history = useHistory();
   const { authenticated, logout } = useAuth();
+  const [videos, setVideos] = useState([]);
 
   function deAuthenticate(event) {
     event.preventDefault();
@@ -35,7 +22,12 @@ function HomePage() {
     history.push('/');
   }
 
-    console.log('last',authenticated)
+  useEffect(() => {
+    getVideos().then((videosFetched) => {
+      if (authenticated) setVideos(videosFetched.filter((video) => video.id.videoId));
+    });
+  }, [authenticated]);
+
   return (
     <Home>
       {authenticated ? (
@@ -48,12 +40,12 @@ function HomePage() {
           <Main>
             <Menu deAuthenticate={deAuthenticate} />
             <HomeContent>
-              <Grid videos={videos.filter((video) => video.id.videoId)} />
+              <Grid videos={videos} />
             </HomeContent>
           </Main>
         </>
       ) : (
-        <Redirect to="/login">let me in →</Redirect> 
+        <Redirect to="/login">let me in →</Redirect>
       )}
     </Home>
   );
